@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉 Happy Birthday! 🎂</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>🎂 Happy Birthday, Jayuuu! 🎉</h1>
+        <p>Wishing you a fantastic day filled with joy, laughter, and surprises! 🎁</p>
+        <p>Once Again Happy Birthday #jungleboyy JAY.....aj jari lamb aslas tari maza prem online patavtoy. Tu visarla aschil mala pn me nahi visarlo bhava..</p>
+        <p>Vityat ye majja kru A1 wala apli vaat bgtoy.. tuza divas ahe aj majja kr.....Paise kamvayla laglyvr mothi party de bhdvya atta sodtoy pn nantar nahi sodnar......</p>
+        <p>Tuza JUNA mitra viraj....................</p>
+        <button onclick="startCelebration()">Click for a Surprise! 🎊</button>
+        
+        <div id="surprise" class="hidden">
+            <img src="/birthday/Tree-mendous Cake Decorating Ideas_ How to Make a Forest-Themed Masterpiece.jpg" alt="Birthday Cake">
+            <p>🎈 Hope your day is as amazing as you! 🎈</p>
+            <audio id="music" src="/birthday/happy-birthday-254480.ogg"></audio>
+        </div>
+        
+        <div id="balloons" class="balloons"></div>
+        <div id="countdown"></div>
+    </div>
+    
+    <script>
+        function startCelebration() {
+            document.getElementById("surprise").classList.remove("hidden");
+            document.getElementById("music").play();
+            launchConfetti();
+            startBalloons();
+            startCountdown();
+        }
+
+        function launchConfetti() {
+            confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+        }
+
+        function startBalloons() {
+            let container = document.getElementById("balloons");
+            for (let i = 0; i < 10; i++) {
+                let balloon = document.createElement("div");
+                balloon.className = "balloon";
+                balloon.style.left = Math.random() * 100 + "vw";
+                container.appendChild(balloon);
+                setTimeout(() => balloon.remove(), 5000);
+            }
+        }
+
+        function startCountdown() {
+            let countdown = document.getElementById("countdown");
+            let timeLeft = 10;
+            let timer = setInterval(() => {
+                countdown.innerText = `🎉 Celebration in ${timeLeft} seconds! 🎈`;
+                timeLeft--;
+                if (timeLeft < 0) {
+                    clearInterval(timer);
+                    countdown.innerText = "🎊 Let the party begin! 🎊";
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
